@@ -1,0 +1,50 @@
+<div class="container">
+  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+    <p-button type="button" icon="pi pi-arrow-left" [text]="true" routerLink="/" [attr.aria-label]="'Voltar para a listagem'" />
+    <h1 style="margin: 0;">Novo Chamado</h1>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label for="title">Título</label>
+      <input id="title" type="text" pInputText formControlName="title"
+        [class.ng-invalid]="form.get('title')?.invalid && form.get('title')?.touched" />
+      @if (form.get('title')?.invalid && form.get('title')?.touched) {
+      <p-message severity="error" class="error-message">{{ getFieldError('title') }}</p-message>
+      }
+    </div>
+
+    <div class="field">
+      <label for="description">Descrição</label>
+      <textarea id="description" pTextarea formControlName="description" rows="5"
+        [class.ng-invalid]="form.get('description')?.invalid && form.get('description')?.touched"></textarea>
+      @if (form.get('description')?.invalid && form.get('description')?.touched) {
+      <p-message severity="error" class="error-message">{{ getFieldError('description') }}</p-message>
+      }
+    </div>
+
+    <div class="field">
+      <label for="category">Categoria</label>
+      @if (loadingCategories()) {
+      <p-skeleton height="2.5rem" />
+      } @else {
+      <p-select inputId="category" formControlName="category" [options]="categories()" optionLabel="id" optionValue="id"
+        placeholder="Selecione uma categoria"
+        emptyMessage="Nenhum resultado encontrado"
+        [class.ng-invalid]="form.get('category')?.invalid && form.get('category')?.touched" />
+      }
+      @if (form.get('category')?.invalid && form.get('category')?.touched) {
+      <p-message severity="error" class="error-message">{{ getFieldError('category') }}</p-message>
+      }
+    </div>
+
+    @if (errorMessage()) {
+    <p-message severity="error" class="error-message">{{ errorMessage() }}</p-message>
+    }
+
+    <div class="actions">
+      <p-button type="button"   label="Cancelar" severity="secondary" routerLink="/" />
+      <p-button type="submit" icon="pi pi-save" label="Salvar" />
+    </div>
+  </form>
+</div>
