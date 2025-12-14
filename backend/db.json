@@ -1,0 +1,11 @@
+{
+  "tickets": [
+    {
+      "id": "1",
+      "title": "Erro no login",
+      "description": "Usuário não entra",
+      "category": "Suporte"
+    }
+  ],
+  "categories": [{ "id": "Suporte" }, { "id": "Infra" }, { "id": "Cobrança" }]
+}
