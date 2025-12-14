@@ -1,0 +1,65 @@
+{
+  "tickets": [
+    {
+      "id": "1",
+      "title": "Erro no login",
+      "description": "Usuário não entra",
+      "category": "Suporte"
+    },
+    {
+      "id": "2",
+      "title": "Sistema lento",
+      "description": "Aplicação apresenta lentidão ao carregar páginas",
+      "category": "Infra"
+    },
+    {
+      "id": "3",
+      "title": "Fatura duplicada",
+      "description": "Cliente recebeu cobrança em duplicidade",
+      "category": "Cobrança"
+    },
+    {
+      "id": "4",
+      "title": "Resetar senha",
+      "description": "Usuário esqueceu a senha e precisa recuperar",
+      "category": "Suporte"
+    },
+    {
+      "id": "5",
+      "title": "Servidor fora do ar",
+      "description": "Servidor de produção não está respondendo",
+      "category": "Infra"
+    },
+    {
+      "id": "6",
+      "title": "Erro ao gerar relatório",
+      "description": "Relatório mensal não está sendo gerado",
+      "category": "Suporte"
+    },
+    {
+      "id": "7",
+      "title": "Banco de dados corrompido",
+      "description": "Tabelas apresentando inconsistência nos dados",
+      "category": "Infra"
+    },
+    {
+      "id": "8",
+      "title": "Cancelamento de assinatura",
+      "description": "Cliente solicitou cancelamento do serviço",
+      "category": "Cobrança"
+    },
+    {
+      "id": "9",
+      "title": "Atualização de cadastro",
+      "description": "Usuário não consegue atualizar seus dados pessoais",
+      "category": "Suporte"
+    },
+    {
+      "id": "10",
+      "title": "Problema com backup",
+      "description": "Rotina de backup não executou na última semana",
+      "category": "Infra"
+    }
+  ],
+  "categories": [{ "id": "Suporte" }, { "id": "Infra" }, { "id": "Cobrança" }]
+}
