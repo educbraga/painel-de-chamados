@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="header">
+    <h1>Chamados</h1>
+    <p-button label="Novo Chamado" routerLink="/create" />
+  </div>
+
+  @if (loading()) {
+    <p-table [value]="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template #header>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Categoria</th>
+        </tr>
+      </ng-template>
+      <ng-template #body>
+        <tr>
+          <td><p-skeleton /></td>
+          <td><p-skeleton /></td>
+          <td><p-skeleton /></td>
+          <td><p-skeleton /></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  } @else if (tickets().length === 0) {
+    <div class="empty-message">
+      Não há chamados
+    </div>
+  } @else {
+    <p-table
+      [value]="tickets()"
+      [paginator]="true"
+      [rows]="10"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
+      <ng-template #header>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Categoria</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-ticket>
+        <tr>
+          <td>{{ ticket.id }}</td>
+          <td>{{ ticket.title }}</td>
+          <td>{{ ticket.description }}</td>
+          <td>{{ ticket.category }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  }
+</div>
