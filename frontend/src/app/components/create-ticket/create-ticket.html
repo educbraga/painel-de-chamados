@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="page-header">
+    <p-button type="button" icon="pi pi-arrow-left" [text]="true" routerLink="/" [attr.aria-label]="'Voltar para a listagem'" />
+    <h1 class="page-header__title">Novo Chamado</h1>
+  </div>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form__field">
+      <label class="form__label" for="title" [attr.aria-label]="'Título do chamado'">Título</label>
+      <input
+        id="title"
+        type="text"
+        class="form__input"
+        autocomplete="off"
+        pInputText formControlName="title"
+        [attr.aria-describedby]="form.get('title')?.invalid && form.get('title')?.touched ? 'title-error' : null"
+        [attr.aria-invalid]="form.get('title')?.invalid && form.get('title')?.touched"
+        [class.ng-invalid]="form.get('title')?.invalid && form.get('title')?.touched" />
+      @if (form.get('title')?.invalid && form.get('title')?.touched) {
+      <p-message id="title-error" severity="error" class="form__error" [attr.role]="'alert'" aria-live="polite">{{ getFieldError('title') }}</p-message>
+      }
+    </div>
+
+    <div class="form__field">
+      <label class="form__label" for="description" [attr.aria-label]="'Descrição do chamado'">Descrição</label>
+      <textarea
+        id="description"
+        class="form__input"
+        pTextarea
+        autocomplete="off"
+        formControlName="description"
+        rows="5"
+        [class.ng-invalid]="form.get('description')?.invalid && form.get('description')?.touched"
+        [attr.aria-describedby]="form.get('description')?.invalid && form.get('description')?.touched ? 'description-error' : null"
+        [attr.aria-invalid]="form.get('description')?.invalid && form.get('description')?.touched"></textarea>
+      @if (form.get('description')?.invalid && form.get('description')?.touched) {
+        <p-message id="description-error" severity="error" class="form__error" [attr.role]="'alert'" aria-live="polite">{{ getFieldError('description') }}</p-message>
+      }
+    </div>
+
+    <div class="form__field">
+      <label class="form__label" for="category" [attr.aria-label]="'Categoria do chamado'">Categoria</label>
+      @if (loadingCategories()) {
+      <p-skeleton height="2.5rem" />
+      } @else {
+      <p-select inputId="category" class="form__input" formControlName="category" [options]="categories()" optionLabel="id" optionValue="id"
+        placeholder="Selecione uma categoria"
+        autocomplete="off"
+        emptyMessage="Nenhum resultado encontrado"
+        [class.ng-invalid]="form.get('category')?.invalid && form.get('category')?.touched"
+        [attr.aria-describedby]="form.get('category')?.invalid && form.get('category')?.touched ? 'category-error' : null"
+        [attr.aria-invalid]="form.get('category')?.invalid && form.get('category')?.touched" />
+      }
+      @if (form.get('category')?.invalid && form.get('category')?.touched) {
+      <p-message id="category-error" severity="error" class="form__error" [attr.role]="'alert'" aria-live="polite">{{ getFieldError('category') }}</p-message>
+      }
+    </div>
+
+    @if (errorMessage()) {
+    <p-message id="error-message" severity="error" class="form__error" [attr.role]="'alert'" aria-live="polite">{{ errorMessage() }}</p-message>
+    }
+
+    <div class="form__actions">
+      <p-button type="button"   label="Cancelar" severity="secondary" routerLink="/" [attr.aria-label]="'Cancelar'" />
+      <p-button type="submit" icon="pi pi-save" label="Salvar" [attr.aria-label]="'Salvar chamado'" />
+    </div>
+  </form>
+</div>

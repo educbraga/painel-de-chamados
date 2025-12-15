@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="tickets__header">
+    <h1>Chamados</h1>
+    <p-button icon="pi pi-plus" label="Novo Chamado" routerLink="/create" [attr.aria-label]="'Novo Chamado'" />
+  </div>
+
+  @if (loading()) {
+    <div role="status" aria-live="polite" aria-label="Carregando chamados">
+    <p-table [value]="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template #header>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Categoria</th>
+        </tr>
+      </ng-template>
+      <ng-template #body>
+        <tr>
+          <td><p-skeleton /></td>
+          <td><p-skeleton /></td>
+          <td><p-skeleton /></td>
+          <td><p-skeleton /></td>
+        </tr>
+      </ng-template>
+    </p-table>
+    </div>
+  } @else if (tickets().length === 0) {
+    <div class="tickets__empty" role="status" aria-live="polite" aria-label="Não há chamados">
+      Não há chamados
+    </div>
+  } @else {
+    <p-table
+      [value]="tickets()"
+      [paginator]="true"
+      [rows]="10"
+      [scrollable]="true"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      stripedRows
+      sortMode="multiple"
+      ariaLabel="Lista de chamados"
+    >
+      <ng-template #header>
+        <tr>
+          <th pFrozenColumn pSortableColumn="id" style="width:5%" scope="col">
+            <div class="flex items-center gap-2" >
+              ID
+              <p-sortIcon field="id" />
+            </div>
+          </th>
+          <th pSortableColumn="title" style="width:20%" scope="col">
+            <div class="flex items-center gap-2">
+              Título
+              <p-sortIcon field="title" />
+            </div>
+          </th>
+          <th pSortableColumn="description" style="width:20%" scope="col">
+            <div class="flex items-center gap-2">
+              Descrição
+              <p-sortIcon field="description" />
+            </div>
+          </th>
+          <th pSortableColumn="category" style="width:20%" scope="col">
+            <div class="flex items-center gap-2">
+              Categoria
+              <p-sortIcon field="category" />
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-ticket>
+        <tr>
+          <td pFrozenColumn scope="row">{{ ticket.id }}</td>
+          <td scope="row">{{ ticket.title }}</td>
+          <td scope="row">{{ ticket.description }}</td>
+          <td scope="row">{{ ticket.category }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  }
+</div>
