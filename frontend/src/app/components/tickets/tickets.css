@@ -5,6 +5,14 @@
   margin-bottom: var(--spacing-lg);
 }
 
+@media (max-width: 768px) {
+  .tickets__header {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+}
+
 .tickets__empty {
   text-align: center;
   padding: 3rem;
