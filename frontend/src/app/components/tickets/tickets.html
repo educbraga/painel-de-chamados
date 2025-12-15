@@ -1,10 +1,11 @@
 <div class="container">
   <div class="tickets__header">
     <h1>Chamados</h1>
-    <p-button icon="pi pi-plus" label="Novo Chamado" routerLink="/create" />
+    <p-button icon="pi pi-plus" label="Novo Chamado" routerLink="/create" [attr.aria-label]="'Novo Chamado'" />
   </div>
 
   @if (loading()) {
+    <div role="status" aria-live="polite" aria-label="Carregando chamados">
     <p-table [value]="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [tableStyle]="{ 'min-width': '50rem' }">
       <ng-template #header>
         <tr>
@@ -23,8 +24,9 @@
         </tr>
       </ng-template>
     </p-table>
+    </div>
   } @else if (tickets().length === 0) {
-    <div class="tickets__empty">
+    <div class="tickets__empty" role="status" aria-live="polite" aria-label="Não há chamados">
       Não há chamados
     </div>
   } @else {
