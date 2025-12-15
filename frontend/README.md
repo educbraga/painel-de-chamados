@@ -1,59 +1,79 @@
-# Helpdesk
+# Frontend - Painel de Chamados
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+Interface web responsiva para gerenciamento de tickets de suporte técnico, desenvolvida com Angular 21.
 
-## Development server
+## 🚀 Começando
 
-To start a local development server, run:
+### 📋 Pré-requisitos
 
-```bash
-ng serve
-```
+- Node.js (versão 20 ou superior Par)
+- npm
+- Backend rodando em `http://localhost:3000` (ver [../backend/README.md](../backend/README.md))
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+> 💡 Se você usa nvm: `nvm install && nvm use`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 🔧 Instalação
 
 ```bash
-ng generate component component-name
+cd frontend
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Acesse http://localhost:4200/ — a aplicação recarrega automaticamente ao modificar arquivos.
+
+## ⚙️ Testes
 
 ```bash
-ng generate --help
+npm test
 ```
 
-## Building
-
-To build the project run:
+## 📦 Build de Produção
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Arquivos gerados em `dist/`.
 
-## Running unit tests
+## 🛠️ Construído com
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+| Tecnologia      | Justificativa                                                                                                                                             |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Angular 21**  | Framework robusto com excelente suporte a TypeScript, arquitetura baseada em componentes e ferramentas como a Angular CLI que aceleram o desenvolvimento. |
+| **TypeScript**  | Superset que reduz erros em tempo de desenvolvimento através de tipagem estática, melhorando a manutenibilidade do código.                                |
+| **Angular CLI** | Automatiza tarefas repetitivas (criação de componentes, build, testes), aumentando significativamente a produtividade.                                    |
+| **PrimeNG**     | Biblioteca de componentes UI rica e personalizável que acelera o desenvolvimento de interfaces modernas e responsivas com Angular.                        |
+| **Vitest**      | Nativo no Angular 21 e possui sintaxe simples e moderna.                                                                                                  |
 
-```bash
-ng test
+## 📁 Estrutura
+
+```
+src/app/
+├── components/
+│   ├── create-ticket/   # Formulário de criação
+│   ├── tickets/         # Listagem de tickets
+│   ├── header/          # Cabeçalho
+│   ├── footer/          # Rodapé
+│   ├── layout/          # Layout principal
+│   └── not-found/       # Página 404
+├── services/
+│   └── ticket.ts        # Comunicação com API
+├── app.routes.ts        # Rotas
+└── app.config.ts        # Configuração
 ```
 
-## Running end-to-end tests
+## 🤖 Uso de IA
 
-For end-to-end (e2e) testing, run:
+- ~30% gerado com auxílio de IA (ajustes, refatorações, correções de bugs, documentação, auxílio na arquitetura, dúvidas sobre a sintaxe e identificação de melhorias de usabilidade e acessibilidade)
+- ~70% desenvolvido manualmente ou via CLI
+- Ferramentas: GitHub Copilot, Claude Opus 4.5
+- Todo código foi revisado manualmente
 
-```bash
-ng e2e
-```
+## 📄 Licença
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+MIT
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+⌨️ Desenvolvido com Angular e muito café ☕️
