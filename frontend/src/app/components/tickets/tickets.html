@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="header">
+  <div class="tickets__header">
     <h1>Chamados</h1>
     <p-button icon="pi pi-plus" label="Novo Chamado" routerLink="/create" />
   </div>
@@ -24,7 +24,7 @@
       </ng-template>
     </p-table>
   } @else if (tickets().length === 0) {
-    <div class="empty-message">
+    <div class="tickets__empty">
       Não há chamados
     </div>
   } @else {
