@@ -1,0 +1,23 @@
+.header {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.header__icon {
+  font-size: 1.1rem;
+}
+
+.header__link {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,12 @@
+.tickets__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.tickets__empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-muted);
+}
