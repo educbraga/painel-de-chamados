@@ -1,10 +1,26 @@
-header {
-  background-color: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 1rem 0;
+.header {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header h1 {
+.header__title {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.header__icon {
+  font-size: 1.1rem;
+}
+
+.header__link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
 }
