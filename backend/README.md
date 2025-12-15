@@ -1,62 +1,35 @@
 # Backend - API REST de Chamados
 
-> API REST simulada para gerenciamento de chamados (tickets) de suporte, desenvolvida com JSON Server.
+API REST simulada para gerenciamento de tickets de suporte, desenvolvida com JSON Server.
 
-## 📋 Sobre o Projeto
+## 🚀 Começando
 
-Este backend fornece uma API REST para o **Painel de Chamados**, permitindo criar e listar tickets de suporte técnico. É uma solução rápida e prática para desenvolvimento e testes, sem necessidade de configurar um banco de dados real.
-
-### O que você encontrará aqui:
-
-- API REST com JSON Server
-- 10 tickets de exemplo pré-cadastrados para testes
-- 3 categorias de chamados: Suporte, Infra e Cobrança
-- Rotas para listar e criar tickets
-- Rota para listar categorias
-- Persistência em arquivo JSON
-
-## 🚀 Instalação e Execução
-
-### Pré-requisitos
+### 📋 Pré-requisitos
 
 - Node.js
-- npm (gerenciador de pacotes do Node.js)
+- npm
 
-### Instalar dependências
+> 💡 Se você usa nvm: `nvm install && nvm use`
+
+### 🔧 Instalação
 
 ```bash
+cd backend
 npm install
-```
-
-### Como executar o servidor
-
-```bash
 npm start
 ```
 
-O servidor deve iniciar em `http://localhost:3000` e deve permanecer em execução para que a API funcione corretamente.
+Servidor disponível em http://localhost:3000
 
-O JSON Server cria automaticamente rotas REST baseadas no `db.json` e persiste os dados nesse arquivo.
+## ⚙️ Rotas
 
-## 🧪 Testando as Rotas
+| Método | Rota          | Descrição                                   |
+| ------ | ------------- | ------------------------------------------- |
+| GET    | `/categories` | Lista categorias (Suporte, Infra, Cobrança) |
+| GET    | `/tickets`    | Lista todos os tickets                      |
+| POST   | `/tickets`    | Cria novo ticket                            |
 
-### Listar categorias
-
-```bash
-GET http://localhost:3000/categories
-```
-
-Retorna: Suporte, Infra e Cobrança
-
-### Listar tickets
-
-```bash
-GET http://localhost:3000/tickets
-```
-
-Retorna: 10 tickets de exemplo pré-cadastrados, mais quaisquer tickets criados durante a execução.
-
-### Criar novo ticket
+### Exemplo de criação
 
 ```bash
 POST http://localhost:3000/tickets
@@ -71,41 +44,33 @@ Content-Type: application/json
 
 ## 📊 Estrutura de Dados
 
-### Ticket
-
 ```json
-{
-  "id": "a3f2",
-  "title": "Erro no login",
-  "description": "Usuário não entra",
-  "category": "Suporte"
-}
+// Ticket
+{ "id": "a3f2", "title": "Erro no login", "description": "Usuário não entra", "category": "Suporte" }
+
+// Category
+{ "id": "Suporte" }
 ```
 
-### Category
+## 🛠️ Construído com
 
-```json
-{
-  "id": "Suporte"
-}
-```
+- [JSON Server](https://github.com/typicode/json-server) — API REST fake para prototipagem pois permite criar um backend completo com pouco tempo de configuração.
 
 ## ❗ Troubleshooting
 
-**Porta 3000 já em uso:**
+| Problema                           | Solução                    |
+| ---------------------------------- | -------------------------- |
+| Porta 3000 em uso                  | `kill -9 $(lsof -ti:3000)` |
+| Alterações no db.json não aparecem | Reinicie o servidor        |
 
-```bash
-# Encontrar processo usando a porta 3000
-lsof -ti:3000
+## 🤖 Uso de IA
 
-# Encerrar o processo
-kill -9 $(lsof -ti:3000)
-```
+IA utilizada apenas para auxílio desta documentação.
 
-**Alterações no db.json não aparecem:**
+## 📄 Licença
 
-- Reinicie o servidor após modificar o `db.json` manualmente
+MIT
 
-## Licença
+---
 
-Este projeto está licenciado sob a Licença MIT.
+Feito com JSON Server e muito café ☕️
