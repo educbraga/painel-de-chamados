@@ -1,10 +1,24 @@
 @import 'primeicons/primeicons.css';
 
+:root {
+  --color-text: #333;
+  --color-text-muted: #666;
+  --color-border: #e0e0e0;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --container-max-width: 1200px;
+}
+
+/* reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+/* reset end */
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -16,11 +30,27 @@ body {
 
 main {
   flex: 1;
-  padding: 2rem 0;
+  padding: var(--spacing-lg) 0;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--spacing-sm);
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-header__title {
+  margin: 0;
+}
+
+.link-unstyled {
+  text-decoration: none;
+  color: inherit;
 }
