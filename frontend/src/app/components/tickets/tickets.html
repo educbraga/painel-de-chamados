@@ -32,19 +32,42 @@
       [value]="tickets()"
       [paginator]="true"
       [rows]="10"
+      [scrollable]="true"
       [tableStyle]="{ 'min-width': '50rem' }"
+      stripedRows
+      sortMode="multiple"
     >
       <ng-template #header>
         <tr>
-          <th>ID</th>
-          <th>Título</th>
-          <th>Descrição</th>
-          <th>Categoria</th>
+          <th pFrozenColumn pSortableColumn="id" style="width:5%">
+            <div class="flex items-center gap-2" >
+              ID
+              <p-sortIcon field="id" />
+            </div>
+          </th>
+          <th pSortableColumn="title" style="width:20%">
+            <div class="flex items-center gap-2">
+              Título
+              <p-sortIcon field="title" />
+            </div>
+          </th>
+          <th pSortableColumn="description" style="width:20%">
+            <div class="flex items-center gap-2">
+              Descrição
+              <p-sortIcon field="description" />
+            </div>
+          </th>
+          <th pSortableColumn="category" style="width:20%">
+            <div class="flex items-center gap-2">
+              Categoria
+              <p-sortIcon field="category" />
+            </div>
+          </th>
         </tr>
       </ng-template>
       <ng-template #body let-ticket>
         <tr>
-          <td>{{ ticket.id }}</td>
+          <td pFrozenColumn>{{ ticket.id }}</td>
           <td>{{ ticket.title }}</td>
           <td>{{ ticket.description }}</td>
           <td>{{ ticket.category }}</td>
